@@ -1,5 +1,9 @@
 # Contribution Guide
 
+## Visual Studio Code Setup
+
+Install both the _Prettier_ and _ESLint_ to ensure you code is formatted correctly. After that, go to the settings of VS Code and configure Prettier to be your default formatter.
+
 ## Change Types
 
 | Type     | Usage                                                     |
