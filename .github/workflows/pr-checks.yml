@@ -1,0 +1,35 @@
+name: Pull Request Checks
+on:
+  push:
+    branches: [$default-branch]
+    paths:
+      - 'src/**'
+      - 'packages/**'
+  pull_request:
+    branches:
+      - '*'
+    paths:
+      - 'src/**'
+      - 'packages/**'
+jobs:
+  pr-checks:
+    name: Pull Request Checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3.0.0
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'yarn'
+
+      - name: Install Dependencies
+        run: yarn install
+
+      - name: Format checks # Runs tsc, prettier and eslint
+        run: yarn ci
+
+      - name: Test Build
+        run: yarn build

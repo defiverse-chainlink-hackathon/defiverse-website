@@ -20,7 +20,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "eject": "react-scripts eject"
+    "ci": "yarn tsc && yarn lint",
+    "lint": "yarn prettier --check \"src/**/*.{ts,tsx}\" && yarn eslint \"src/**/*.{ts,tsx}\"",
+    "prettify": "prettier --write \"src/**/*.{ts,tsx}\"",
+    "tsc": "tsc -p tsconfig.json"
   },
   "eslintConfig": {
     "extends": [
